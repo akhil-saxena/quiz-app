@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { API_SUBMIT_URL } from '../../constants';
-function QuestionPage({ question, options, handleAnswer,questionImage, progress, sessionId, currentIndex }) {
+
+function QuestionPage({ question, options, handleAnswer, questionImage, progress, sessionId, currentIndex }) {
   const [selectedOption, setSelectedOption] = useState('');
   const [startTime, setStartTime] = useState(null);
 
   useEffect(() => {
-    setStartTime(performance.now()); // Start the timer when the question appears
+    setStartTime(performance.now());
   }, []);
-
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -17,11 +17,11 @@ function QuestionPage({ question, options, handleAnswer,questionImage, progress,
     if (selectedOption) {
       handleAnswer(selectedOption);
       setSelectedOption('');
-      const currentTime = performance.now(); // Record the current time
-    const responseTime = Math.round((currentTime - startTime) * 100) / 100000; // Calculate and round the response time
+      const currentTime = performance.now();
+      const responseTime = Math.round((currentTime - startTime) * 100) / 100000;
       const payload = {
         sessionId: sessionId,
-        questionId: currentIndex+1,
+        questionId: currentIndex + 1,
         selectedOption,
         responseTime
       };

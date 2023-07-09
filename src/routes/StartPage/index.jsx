@@ -1,9 +1,7 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-
 
 function StartPage({ startQuiz }) {
-    
+
     return (
         <div className="home-page">
             <div className="quiz-circle">
