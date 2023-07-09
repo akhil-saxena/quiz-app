@@ -1,9 +1,22 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { API_SCORE_URL } from '../../constants';
 
-function ScorePage({ score, correctAnswers, totalQuestions, restartQuiz }) {
-    const { sessionId } = useParams();
+function ScorePage({ score, correctAnswers, totalQuestions, sessionId, restartQuiz }) {
+    useEffect(() => {
+        const payload = {
+          sessionId: sessionId
+        };
+        axios.post(API_SCORE_URL, payload)
+          .then(response => {
+            // Handle the response if needed
+          })
+          .catch(error => {
+            // Handle errors if needed
+          });
+      }, []);
 
+    
     return (
         <div className="score-page">
             <div className="header">

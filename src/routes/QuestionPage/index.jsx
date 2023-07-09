@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
-
-function QuestionPage({ question, options, handleAnswer,questionImage, progress }) {
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
+import { API_SUBMIT_URL } from '../../constants';
+function QuestionPage({ question, options, handleAnswer,questionImage, progress, sessionId, currentIndex }) {
   const [selectedOption, setSelectedOption] = useState('');
+  const [startTime, setStartTime] = useState(null);
 
-  const submitAnswer = () => {
-      
-  }
+  useEffect(() => {
+    setStartTime(performance.now()); // Start the timer when the question appears
+  }, []);
 
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
-
   const handleSubmit = () => {
     if (selectedOption) {
       handleAnswer(selectedOption);
       setSelectedOption('');
+      const currentTime = performance.now(); // Record the current time
+    const responseTime = Math.round((currentTime - startTime) * 100) / 100000; // Calculate and round the response time
+      const payload = {
+        sessionId: sessionId,
+        questionId: currentIndex+1,
+        selectedOption,
+        responseTime
+      };
+      Axios.post(API_SUBMIT_URL, payload)
+        .then(response => {
+          // Handle the response if needed
+        })
+        .catch(error => {
+          // Handle errors if needed
+        });
     }
   };
 

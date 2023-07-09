@@ -5,10 +5,7 @@ import HomePage from './routes/StartPage';
 import QuestionPage from './routes/QuestionPage';
 import ScorePage from './routes/ScorePage';
 import './App.css'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-
-const API_URL = "https://akhil-quiz-app.free.beeceptor.com/questions";
+import { API_QUESTIONS_URL } from './constants';
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -16,6 +13,8 @@ function App() {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
+  const [sessionId, setSessionId] = useState('');
+
 
   useEffect(() => {
     if (quizStarted) {
@@ -25,6 +24,7 @@ function App() {
 
   const fetchQuestions = () => {
     const sessionId = MD5(new Date().getTime()).toString();
+    setSessionId(sessionId);
     const tempResp = {
       "response_code": 200,
       "results": [
@@ -142,6 +142,7 @@ function App() {
             score={score}
             correctAnswers={score}
             totalQuestions={questions.length}
+            sessionId={sessionId}
             restartQuiz={handleRestartQuiz}
           />
         ) : (
@@ -153,7 +154,8 @@ function App() {
                 question={questions[currentIndex].question}
                 options={questions[currentIndex].answers}
                 questionImage={questions[currentIndex].questionImage}
-
+                sessionId={sessionId}
+                currentIndex={currentIndex}
                 handleAnswer={handleAnswer}
                 progress={((currentIndex + 1) / questions.length) * 100}
               />
