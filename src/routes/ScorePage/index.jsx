@@ -1,6 +1,9 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 function ScorePage({ score, correctAnswers, totalQuestions, restartQuiz }) {
+    const { sessionId } = useParams();
+
     return (
         <div className="score-page">
             <div className="header">
