@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { MD5 } from 'crypto-js';
-import HomePage from './routes/HomePage';
+import HomePage from './routes/StartPage';
 import QuestionPage from './routes/QuestionPage';
 import ScorePage from './routes/ScorePage';
 import './App.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 const API_URL = "https://akhil-quiz-app.free.beeceptor.com/questions";
 

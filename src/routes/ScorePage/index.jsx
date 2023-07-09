@@ -12,8 +12,12 @@ function ScorePage({ score, correctAnswers, totalQuestions, restartQuiz }) {
                 </div>
             </div>
             <div className="result">
-                <h2>Correct Answers: {correctAnswers}</h2>
-                <h2>Incorrect Answers: {totalQuestions - correctAnswers}</h2>
+                <div className='score-container'>
+                <h2 className="correct-answers">Correct Answers: <span>{correctAnswers}</span></h2>
+                </div>
+                <div className='score-container'>
+                <h2 className="incorrect-answers">Incorrect Answers: <span>{totalQuestions - correctAnswers}</span></h2>
+                </div>
             </div>
             <button className="restart-button" onClick={restartQuiz}>
                 Restart Quiz

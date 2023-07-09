@@ -56,15 +56,15 @@
 .start-button {
     background-color: red;
     color: white;
-    font-size: 2.5rem;
+    max-width: 50vw;
+    min-width: 50vw;
+    font-size: 2rem;
     padding: 1.5rem 3rem;
     border: none;
     border-radius: 50px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 2rem;
     cursor: pointer;
-    max-width: 80vw;
-    min-width: 80vw;
-    min-height: 120px;
 }
 
 .question-page {
@@ -73,17 +73,19 @@
     align-items: center;
     justify-content: center;
     margin-top: 20vh;
-    min-height: calc(100vh - 400px); /* Adjust the value as needed */
-  }
-  
+    min-height: calc(100vh - 400px);
+    /* Adjust the value as needed */
+}
 
-  .question-image {
+
+.question-image {
     border-radius: 10px;
-    max-height: 20vh; /* Adjust the value as needed */
+    max-height: 20vh;
+    /* Adjust the value as needed */
     width: auto;
     margin-bottom: 2rem;
-   }
-  
+}
+
 
 .header {
     display: flex;
@@ -147,8 +149,8 @@
 .option-button {
     background-color: white;
     width: 100%;
-    max-width: 80vw;
-    min-width: 80vw;
+    max-width: 60vw;
+    min-width: 60vw;
     min-height: 120px;
     height: auto;
     padding: 12px;
@@ -172,8 +174,8 @@
 .submit-button {
     background-color: coral;
     color: white;
-    min-width: 80vw;
-    min-height: 70px;
+    max-width: 60vw;
+    min-width: 60vw;    min-height: 70px;
     font-size: 2rem;
     padding: 1.5rem 3rem;
     border: none;
@@ -198,6 +200,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.correct-answers {
+    color: green
+}
+
+.incorrect-answers {
     color: red
 }
 
@@ -208,10 +217,28 @@
     width: 250px;
     height: 250px;
     background-color: white;
-    color: azure;
+    color: black;
+    text-shadow: 2px 2px grey;
     border-radius: 50%;
     font-size: 4rem;
     font-weight: bold;
+}
+
+.score-container {
+    background-color: white;
+    width: 100%;
+    min-width: 50vw;
+    min-height: 10px;
+    height: auto;
+    padding: 12px;
+    margin-bottom: 1rem;
+    background-color: linear-gradient(to right, rgb(173, 59, 173), white);
+    text-shadow: 2px 2px lightgrey;
+
+    border-radius: 50px;
+
+    justify-content: center;
+    cursor: pointer;
 }
 
 .result {
@@ -222,6 +249,8 @@
 .restart-button {
     background-color: red;
     color: white;
+    max-width: 50vw;
+    min-width: 50vw;
     font-size: 2rem;
     padding: 1.5rem 3rem;
     border: none;
