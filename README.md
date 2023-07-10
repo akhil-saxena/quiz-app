@@ -1,56 +1,60 @@
-# Nano React App Default Javascript Template
+# React Quiz App
 
-The default template project for [nano-react-app](https://github.com/nano-react-app/nano-react-app).
+This is a simple React quiz application that allows users to answer multiple-choice questions and get their score at the end. The app fetches questions from an API, calculates response times, and sends the answers to an API endpoint for scoring.
 
-- `npm start` — This will spawn a development server with a default port of `5173`.
-- `npm run build` — This will output a production build in the `dist` directory.
-- `npm run preview` — This will run the production build locally with a default port of `5173` (this will not work if you haven't generated the production build yet).
+## Features
 
-## Custom port
+- Display multiple-choice questions with randomized answer options.
+- Calculate and track the user's score based on correct answers.
+- Calculate the response time for each question.
+- Send the user's answers and session information to an API for scoring.
 
-You can use the `-p` flag to specify a port for development. To do this, you can either run `npm start` with an additional flag:
+## Technologies Used
 
-```
-npm start -- --port 3000
-```
+- React
+- Axios
+- crypto-js
 
-Or edit the `start` script directly:
+## Getting Started
 
-```
-vite --port 3000
-```
+Follow the instructions below to run the React quiz app on your local machine.
 
-## Adding styles
+### Prerequisites
 
-You can use CSS files with simple ES2015 `import` statements anywhere in your Javascript:
+Make sure you have the following software installed:
 
-```js
-import "./index.css";
-```
+- Node.js
+- npm (Node Package Manager)
 
-## Babel transforms
+### Installation
 
-The Babel preset [babel-preset-nano-react-app](https://github.com/nano-react-app/babel-preset-nano-react-app) is used to support the same transforms that Create React App supports.
+1. Clone the repository to your local machine:
+```git clone https://github.com/akhil-saxena/quiz-app.git```
 
-The Babel configuration lives inside `package.json` and will override an external `.babelrc` file, so if you want to use `.babelrc` remember to delete the `babel` property inside `package.json`.
+2. Navigate to the project directory:
+```cd quiz-app```
+
+3. Install the dependencies:
+```npm i```
+
+4. Start the development server:
+```npm start```
+
+5. Open your browser and visit `http://localhost:3000` to access the app.
 
 
-## Deploy to GitHub Pages
+## Usage
 
-You can also deploy your project using GitHub pages.
-First install the `gh-pages` [package](https://github.com/tschaub/gh-pages):
+1. The app starts with a homepage that displays a "Start Quiz" button.
 
-`npm i -D gh-pages`
+2. Click on the "Start Quiz" button to begin the quiz.
 
-Use the following scripts for deployment:
+3. The app fetches questions from the provided API endpoint and presents them one by one.
 
-```js
-"scripts": {
-  "start": "vite",
-  "build": "vite build",
-  "predeploy": "rm -rf dist && vite build",
-  "deploy": "gh-pages -d dist"
-},
-```
+4. Select the answer for each question by clicking on the options.
 
-Then follow the normal procedure in GitHub Pages and select the `gh-pages` branch.
+5. Click the "Submit" button to submit your answer for each question.
+
+6. After answering all the questions, the app displays your score and the number of correct and incorrect answers.
+
+7. Click the "Restart Quiz" button to start a new quiz.
