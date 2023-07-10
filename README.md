@@ -2,6 +2,9 @@
 
 This is a simple React quiz application that allows users to answer multiple-choice questions and get their score at the end. The app fetches questions from an API, calculates response times, and sends the answers to an API endpoint for scoring.
 
+##### Deployment Link
+[https://akhil-saxena.github.io/quiz-app/](https://akhil-saxena.github.io/quiz-app/)
+
 ## Features
 
 - Display multiple-choice questions with randomized answer options.
